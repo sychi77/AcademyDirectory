@@ -25,7 +25,6 @@
             return $http(settings)
                 .then(_complete, _fail);
         }
-
         function _delete(id) {
             var settings = {
                 url: "/api/students/" + id,
@@ -49,10 +48,9 @@
             return $http(settings)
                 .then(_complete, _fail);
         }
-
-        function _put(data, id) {
+        function _put(data) {
             var settings = {
-                url: "/api/students/" + id
+                url: "/api/students/"
                 , method: "PUT"
                 , cache: false
                 , headers: { 'Content-Type': "application/json; charset=UTF-8" }
@@ -63,7 +61,6 @@
             return $http(settings)
                 .then(_complete, _fail);
         }
-
         function _getById(id) {
             var settings = {
                 url: "/api/students/" + id,

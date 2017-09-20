@@ -1,7 +1,6 @@
 ﻿@{
     ViewBag.Title = "Students";
 }
-
 <body ng-controller="studentsIndexController as stIndexCtrl">
     <div class="row wrapper">
         <div class="col-lg-10">
@@ -38,7 +37,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group col-sm-4">
-                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"><i class="fa fa-user-plus" aria-hidden="true" ></i> Add Student</button>
+                                            <button type="button" class="btn btn-default" ng-click="stIndexCtrl.addBtn()"><i class="fa fa-user-plus" aria-hidden="true" ></i> Add Student</button>
                                         </div>
                                         <div class="form-group col-sm-2">
                                             <span class="label label-default">Display per Page</span>
@@ -120,6 +119,7 @@
                                                 <td>{{items.CreatedDate| date:'MM/dd/yyyy'}}</td>
                                                 <td>{{items.ModifiedDate| date:'MM/dd/yyyy'}}</td>
                                                 <td>{{items.ModifiedBy}}</td>
+                                                <td><a class="label label-default" ng-click="stIndexCtrl.editStudent(items)">Edit</a></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -139,7 +139,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Student Entry</h4>
+                    <h4 class="modal-title"><i class="fa fa-address-card-o" aria-hidden="true"></i> Student Form</h4>
                 </div>
                 <div class="modal-body">
                     <form name="studentForm">
@@ -164,14 +164,12 @@
                             <input type="text" ng-model="stIndexCtrl.student.ModifiedBy" class="form-control" id="user" placeholder="Enter Your Name" required>
                         </div>
                     </form>
-                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" ng-disabled="studentForm.$invalid" ng-click="stIndexCtrl.addStudent()">Save</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" ng-show="stIndexCtrl.showDelete" ng-click="stIndexCtrl.deleteStudent()">Delete</button>
                 </div>
             </div>
-
         </div>
     </div>
     @section scripts{

@@ -24,10 +24,10 @@ namespace Academy.Web.Controllers.API
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
 
             int response;
-            if (HttpContext.Current.User.Identity.IsAuthenticated)
-                model.ModifiedBy = HttpContext.Current.User.Identity.Name;
-            else
-                model.ModifiedBy = "Anonymous";
+            //if (HttpContext.Current.User.Identity.IsAuthenticated)
+            //    model.ModifiedBy = HttpContext.Current.User.Identity.Name;
+            //else
+            //    model.ModifiedBy = "Anonymous";
 
             response = studentService.Insert(model);
             return Request.CreateResponse(HttpStatusCode.OK, response);
@@ -61,10 +61,10 @@ namespace Academy.Web.Controllers.API
             if (!ModelState.IsValid)
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
 
-            if (HttpContext.Current.User.Identity.IsAuthenticated)
-                model.ModifiedBy = HttpContext.Current.User.Identity.Name;
-            else
-                model.ModifiedBy = "Anonymous";
+            //if (HttpContext.Current.User.Identity.IsAuthenticated)
+            //    model.ModifiedBy = HttpContext.Current.User.Identity.Name;
+            //else
+            //    model.ModifiedBy = "Anonymous";
 
             studentService.Update(model);
             return Request.CreateResponse(HttpStatusCode.OK, "Updated");
@@ -74,7 +74,7 @@ namespace Academy.Web.Controllers.API
         public HttpResponseMessage Delete(int id)
         {
             studentService.Delete(id);
-            return Request.CreateResponse(HttpStatusCode.OK, "Deleted");
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
     }
