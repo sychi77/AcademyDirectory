@@ -13,6 +13,13 @@ namespace Academy.Web.Controllers
             return View();
         }
 
+        public ActionResult Students()
+        {
+            ViewBag.Message = "Your Students page.";
+
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
