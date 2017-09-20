@@ -2,7 +2,7 @@
     ViewBag.Title = "Students";
 }
 
-<body>
+<body ng-controller="studentsIndexController as stIndexCtrl">
     <div class="row wrapper">
         <div class="col-lg-10">
             <h2><i class="fa fa-address-book-o" aria-hidden="true"></i> Students Directory</h2>
@@ -18,7 +18,7 @@
         <div class="col-lg-2">
         </div>
     </div>
-    <div class="wrapper wrapper-content" ng-controller="studentsIndexController as stIndexCtrl">
+    <div class="wrapper wrapper-content" >
         <div class="row">
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
@@ -38,7 +38,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group col-sm-4">
-                                            <button class="btn btn-default"><i class="fa fa-user-plus" aria-hidden="true"></i> Add Student</button>
+                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"><i class="fa fa-user-plus" aria-hidden="true" ></i> Add Student</button>
                                         </div>
                                         <div class="form-group col-sm-2">
                                             <span class="label label-default">Display per Page</span>
@@ -132,7 +132,48 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Student Entry</h4>
+                </div>
+                <div class="modal-body">
+                    <form name="studentForm">
+                        <div class="form-group">
+                            <label for="fName">First Name</label>
+                            <input type="text" ng-model="stIndexCtrl.student.FirstName" class="form-control" id="fName" placeholder="Enter First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mI">Middle Initial</label>
+                            <input type="text" ng-model="stIndexCtrl.student.MiddleInitial" class="form-control" id="mI" placeholder="Enter Middle Initial" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lName">Last Name</label>
+                            <input type="text" ng-model="stIndexCtrl.student.LastName" class="form-control" id="lName" placeholder="Enter Last Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">Date of Birth</label>
+                            <input type="text" ng-model="stIndexCtrl.student.DateOfBirth" class="form-control" id="dob" placeholder="MM/DD/YYYY" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user">User</label>
+                            <input type="text" ng-model="stIndexCtrl.student.ModifiedBy" class="form-control" id="user" placeholder="Enter Your Name" required>
+                        </div>
+                    </form>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" ng-disabled="studentForm.$invalid" ng-click="stIndexCtrl.addStudent()">Save</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
 
+        </div>
+    </div>
     @section scripts{
         <script src="~/Scripts/Students/StudentsIndexCtrl.js"></script>
         <script src="~/Scripts/Students/StudentsService.js"></script>

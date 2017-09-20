@@ -33,5 +33,6 @@ namespace Academy.Web.Controllers
 
             return View();
         }
+
     }
 }

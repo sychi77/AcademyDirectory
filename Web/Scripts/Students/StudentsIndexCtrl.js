@@ -5,9 +5,9 @@
         .module('academyApp')
         .controller('studentsIndexController', studentsIndexController);
 
-    studentsIndexController.$inject = ['$scope', 'studentsService', '$window'];
+    studentsIndexController.$inject = ['$scope', 'studentsService', '$window', 'toastr'];
 
-    function studentsIndexController($scope, studentsService, $window) {
+    function studentsIndexController($scope, studentsService, $window, toastr) {
 
         var vm = this;
         vm.$scope = $scope;
@@ -15,12 +15,14 @@
         vm.$onInit = _init;
         vm.selectAll = _selectAll;
         vm.deleteById = _deleteById;
-        vm.insert = _insert;
         vm.items = [];
+        vm.student = {};
         vm.$window = $window;
         vm.index;
         vm.sortType = 'id'; // set the default sort type
         vm.sortReverse = false;  // set the default sort order
+        vm.toastr = toastr;
+        vm.addStudent = _addStudent;
 
         function _init() {
             _selectAll();
@@ -35,8 +37,18 @@
             vm.items = data.data;
             return
         }            
-        function _insert() {
-
+        function _addStudent() {
+            return vm.studentsService.post(vm.student)
+                .then(_addSuccess, _addError)
+        }
+        function _addSuccess(data) {
+            $('#myModal').modal('toggle');
+            toastr.success('Student Added!', 'Success!');
+            vm.student = {};
+            _selectAll();
+        }
+        function _addError(err) {
+            toastr.warning('Student Not Added. Check Your Fields.', 'Error');
         }
         function _deleteById(index, id) {
             vm.index = index;
@@ -50,6 +62,7 @@
         function _error(err) {
             return console.log(err)
         }
+        
     }
 })();
 
