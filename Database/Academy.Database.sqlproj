@@ -63,5 +63,9 @@
   <ItemGroup>
     <Build Include="Tables\Students.sql" />
     <Build Include="StoredProcs\Students_SelectAll.sql" />
+    <Build Include="StoredProcs\Students_Insert.sql" />
+    <Build Include="StoredProcs\Students_SelectById.sql" />
+    <Build Include="StoredProcs\Students_Update.sql" />
+    <Build Include="StoredProcs\Students_Delete.sql" />
   </ItemGroup>
 </Project>
