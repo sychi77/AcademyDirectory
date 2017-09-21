@@ -1,6 +1,6 @@
 # Academy Students Directory
 
-**NOTE:** This application employs .NET, C#, MVC5, HTML5, CSS3, JS, AngularJS 1.X, SQL, and WebAPI.
+**NOTE:** This application employs ASP.NET, C#, MVC5, HTML5, CSS3, JS, AngularJS 1.X, SQL, and WebAPI.
 
 The purpose of this app is to display a table that `SELECT`, `POST`, `PUT`, and `DELETE` student information.
 
