@@ -14,14 +14,12 @@ The directory selects all students in the database on initiation of the page and
 
 The table has functionalities for search/filter, display order, display number, and pagination.
 
-`dirPagination` adds more features to the normal angular built-in functionalities for tables.
+* `dirPagination` adds more features to the normal angular built-in functionalities for tables.
 
 A modal form is displayed on click of `insert` or `edit`. 
 
-Insert shows a blank form for student entry. 
-
-Edit shows the corresponding student info that can be changed.
-
-Delete button is shown only when modal is triggered with the Edit buttons.
+* Insert shows a blank form for student entry. 
+* Edit shows the corresponding student info that can be changed.
+* Delete button is shown only when modal is triggered with the Edit buttons.
 
 `angular-toastr` displays success or error messages after $http method calls.
