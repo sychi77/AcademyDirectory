@@ -2,7 +2,7 @@
 
 **NOTE:** This application employs ASP.NET, C#, MVC5, HTML5, CSS3, JS, AngularJS 1.X, SQL, and WebAPI.
 
-The purpose of this app is to display a table that `SELECT`, `POST`, `PUT`, and `DELETE` student information.
+The purpose of this app is to display a table that `GET`, `POST`, `PUT`, and `DELETE` student information.
 
 ## AngularJS Directives
 
