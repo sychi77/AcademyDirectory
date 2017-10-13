@@ -14,6 +14,7 @@
             put: _put,
             getById: _getById
         };
+        //GET call for all students info
         function _getAll() {
             var settings = {
                 url: "/api/students",
@@ -25,6 +26,7 @@
             return $http(settings)
                 .then(_complete, _fail);
         }
+        //DELETE student based on ID
         function _delete(id) {
             var settings = {
                 url: "/api/students/" + id,
@@ -36,6 +38,7 @@
             return $http(settings)
                 .then(_complete, _fail);
         }
+        //POST call to add new student
         function _post(myData) {
             var settings = {
                 url: "/api/students"
@@ -48,6 +51,7 @@
             return $http(settings)
                 .then(_complete, _fail);
         }
+        //PUT call to update existing student
         function _put(data) {
             var settings = {
                 url: "/api/students/"
@@ -61,6 +65,7 @@
             return $http(settings)
                 .then(_complete, _fail);
         }
+        //GET call one student based on ID
         function _getById(id) {
             var settings = {
                 url: "/api/students/" + id,
@@ -72,6 +77,7 @@
             return $http(settings)
                 .then(_complete, _fail);
         }
+        //Promised functions returning successful data or error
         function _complete(data) {
             return data;
         }
