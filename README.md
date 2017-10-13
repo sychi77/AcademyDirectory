@@ -7,6 +7,9 @@ The purpose of this app is to display a table that `GET`, `POST`, `PUT`, and `DE
 ## AngularJS Directives
 
 I currently have `angular-toastr`, `dirPagination`, and `ui.bootstrap` for my app.
+* [angular-toastr](https://github.com/Foxandxss/angular-toastr)
+* [dirPagination](https://github.com/michaelbromley/angularUtils/tree/master/src/directives/pagination)
+* [UI bootstrap](https://angular-ui.github.io/bootstrap/)
 
 ## How the Table Works
 
