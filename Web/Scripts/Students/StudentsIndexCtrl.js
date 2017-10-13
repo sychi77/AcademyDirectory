@@ -1,4 +1,4 @@
-﻿//Index Controller
+﻿//Students Index Controller
 (function () {
     "use strict";
     angular
@@ -26,6 +26,7 @@
         vm.showDelete = false;
         vm.deleteStudent = _deleteStudent;
 
+        //On start, selects for all students
         function _init() {
             _selectAll();
             return
@@ -38,12 +39,14 @@
             console.log(data.data);
             vm.items = data.data;
             return
-        }            
+        } 
+        //Add Student Modal button
         function _addBtn() {
             vm.showDelete = false;
             vm.student = {};
             $('#myModal').modal('toggle');
         }
+        //Modal Save button feature for adding/updating student
         function _addStudent() {
             if (vm.student.Id > 0) {
                 return vm.studentsService.put(vm.student)
@@ -61,6 +64,7 @@
         function _addError(err) {
             toastr.warning('Student Not Added. Check Your Fields.', 'Error');
         }
+        //Updating student info
         function _editStudent(student) {
             vm.student.Id = student.Id;
             vm.student.FirstName = student.FirstName;
@@ -80,6 +84,7 @@
         function _updateError(err) {
             toastr.warning('Student Info Not Updated. Check Your Fields.', 'Error');
         }
+        //Deleting student info
         function _deleteStudent() {
             return vm.studentsService.delete(vm.student.Id)
                 .then(_deleteSuccess, _error)
@@ -97,4 +102,3 @@
         
     }
 })();
-
